@@ -40,7 +40,7 @@ class UpdateChecker{
 
 	public function __construct(Server $server, string $endpoint){
 		$this->server = $server;
-		$this->logger = new \PrefixedLogger($server->getLogger(), "Update Checker");
+		$this->logger = new \PrefixedLogger($server->getLogger(), "Лень вырезать ее");
 		$this->endpoint = "http://$endpoint/api/";
 
 		if($server->getConfigGroup()->getPropertyBool("auto-updater.enabled", true)){
@@ -99,7 +99,7 @@ class UpdateChecker{
 	protected function showChannelSuggestionStable() : void{
 		$this->printConsoleMessage([
 			"You're running a Stable build, but you're receiving update notifications for " . ucfirst($this->getChannel()) . " builds.",
-			"To get notified about new Stable builds only, change 'preferred-channel' in your pocketmine.yml to 'stable'."
+			"To get notified about new Stable builds only, change 'preferred-channel' in your pocketmine.yml to 'stable'. (крч пиздит что у тебя версия новее чем на гитке)"
 		]);
 	}
 
