@@ -36,7 +36,7 @@ use const PHP_EOL;
 class MainLogger extends AttachableThreadSafeLogger implements \BufferedLogger{
 	protected bool $logDebug;
 
-	private string $format = TextFormat::AQUA . "[%s] " . TextFormat::RESET . "%s[%s/%s]: %s" . TextFormat::RESET;
+	private string $format = TextFormat::GREEN . "%s" . TextFormat::RESET . " | %s" . TextFormat::GREEN . "%s " . TextFormat::RESET . "» %s" . TextFormat::RESET;
 	private bool $useFormattingCodes = false;
 	private string $mainThreadName;
 	private string $timezone;
@@ -186,7 +186,7 @@ class MainLogger extends AttachableThreadSafeLogger implements \BufferedLogger{
 			$threadName = (new \ReflectionClass($thread))->getShortName() . " thread";
 		}
 
-		$message = sprintf($this->format, $time->format("H:i:s.v"), $color, $threadName, $prefix, TextFormat::addBase($color, TextFormat::clean($message, false)));
+		$message = sprintf($this->format, $time->format("H:i:s"), $color, $prefix, TextFormat::addBase($color, TextFormat::clean($message, false)));
 
 		if(!Terminal::isInit()){
 			Terminal::init($this->useFormattingCodes); //lazy-init colour codes because we don't know if they've been registered on this thread
