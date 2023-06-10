@@ -10,7 +10,7 @@ This is the standard PocketMine-MP downloaded from the off repository and modifi
 
 ![](https://github.com/c4-off/pmmp-edit/blob/main/img/1.png?raw=true)
 
-> download my version of the kernel [» here «](https://github.com/c4-off/pmmp-edit/releases)
+> download my version of the kernel [» here «](https://github.com/c4-off/PocketMine-MP-edit/releases)
 
 > download the current version of the kernel [» here «](https://github.com/pmmp/PocketMine-MP/releases)
 
