@@ -219,7 +219,9 @@ class SimpleCommandMap implements CommandMap{
 			return true;
 		}
 
-		$sender->sendMessage(KnownTranslationFactory::pocketmine_command_notFound($sentCommandLabel ?? "", "/help")->prefix(TextFormat::RED));
+		//$sender->sendMessage(KnownTranslationFactory::pocketmine_command_notFound($sentCommandLabel ?? "", "/help")->prefix(TextFormat::GREEN));
+		$sender->sendMessage(TextFormat::RESET . "Неизвестная комманда" . TextFormat::GREEN . " » " . TextFormat::RESET . "/" . $sentCommandLabel);
+		$sender->sendMessage(TextFormat::RESET . "Используй" . TextFormat::GREEN . " /help " . TextFormat::RESET . "для получения всех команд");
 		return false;
 	}
 
