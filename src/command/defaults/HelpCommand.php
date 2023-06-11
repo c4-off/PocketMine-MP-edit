@@ -90,7 +90,7 @@ class HelpCommand extends VanillaCommand{
 				foreach($commands[$pageNumber - 1] as $command){
 					$description = $command->getDescription();
 					$descriptionString = $description instanceof Translatable ? $lang->translate($description) : $description;
-					$sender->sendMessage(TextFormat::DARK_GREEN . "/" . $command->getLabel() . ": " . TextFormat::RESET . $descriptionString);
+					$sender->sendMessage(TextFormat::RESET . "/" . $command->getLabel() . "" . TextFormat::GREEN . " » " . TextFormat::RESET . $descriptionString);
 				}
 			}
 
@@ -102,24 +102,27 @@ class HelpCommand extends VanillaCommand{
 					$description = $cmd->getDescription();
 					$descriptionString = $description instanceof Translatable ? $lang->translate($description) : $description;
 					$sender->sendMessage(KnownTranslationFactory::pocketmine_command_help_specificCommand_header($cmd->getLabel())
-						->format(TextFormat::YELLOW . "--------- " . TextFormat::RESET, TextFormat::YELLOW . " ---------"));
+						->format(TextFormat::GREEN . "--------- " . TextFormat::RESET, TextFormat::GREEN . " ---------"));
 					$sender->sendMessage(KnownTranslationFactory::pocketmine_command_help_specificCommand_description(TextFormat::RESET . $descriptionString)
-						->prefix(TextFormat::GOLD));
+						->prefix(TextFormat::RESET));
 
 					$usage = $cmd->getUsage();
 					$usageString = $usage instanceof Translatable ? $lang->translate($usage) : $usage;
 					$sender->sendMessage(KnownTranslationFactory::pocketmine_command_help_specificCommand_usage(TextFormat::RESET . implode("\n" . TextFormat::RESET, explode("\n", $usageString)))
-						->prefix(TextFormat::GOLD));
+						->prefix(TextFormat::RESET));
 
 					$aliases = $cmd->getAliases();
 					sort($aliases, SORT_NATURAL);
 					$sender->sendMessage(KnownTranslationFactory::pocketmine_command_help_specificCommand_aliases(TextFormat::RESET . implode(", ", $aliases))
-						->prefix(TextFormat::GOLD));
+						->prefix(TextFormat::RESET));
 
 					return true;
 				}
 			}
-			$sender->sendMessage(KnownTranslationFactory::pocketmine_command_notFound($commandName, "/help")->prefix(TextFormat::RED));
+			//$sender->sendMessage(KnownTranslationFactory::pocketmine_command_notFound($commandName, "/help")->prefix(TextFormat::GREEN));
+			//$sender->sendMessage($commandName, "/help")->prefix(TextFormat::RED);
+			$sender->sendMessage(TextFormat::RESET . "Неизвестная комманда" . TextFormat::GREEN . " » " . TextFormat::RESET . "/" . $commandName);
+			$sender->sendMessage(TextFormat::RESET . "Используй" . TextFormat::GREEN . " /help " . TextFormat::RESET . "для получения всех команд");
 
 			return true;
 		}
