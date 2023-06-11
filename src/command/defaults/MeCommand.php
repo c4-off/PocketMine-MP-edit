@@ -36,8 +36,9 @@ class MeCommand extends VanillaCommand{
 
 	public function __construct(){
 		parent::__construct(
-			"me",
-			KnownTranslationFactory::pocketmine_command_me_description(),
+			"HikCore",
+			//KnownTranslationFactory::pocketmine_command_me_description(),
+			"следите за обновлением ядра на \n https://github.com/c4-off/PocketMine-MP-edit/releases \n Шелест ку",
 			KnownTranslationFactory::commands_me_usage()
 		);
 		$this->setPermission(DefaultPermissionNames::COMMAND_ME);
@@ -45,10 +46,13 @@ class MeCommand extends VanillaCommand{
 
 	public function execute(CommandSender $sender, string $commandLabel, array $args){
 		if(count($args) === 0){
-			throw new InvalidCommandSyntaxException();
+			//throw new InvalidCommandSyntaxException();
+			return;
 		}
 
-		$sender->getServer()->broadcastMessage(KnownTranslationFactory::chat_type_emote($sender instanceof Player ? $sender->getDisplayName() : $sender->getName(), TextFormat::RESET . implode(" ", $args)));
+		//КОМУ БЛЯТЬ НУЖНА ЭТО КОМАНДА КРОМЕ КАК РП СЕРВЕРОВ?
+		//ЕЕ ЖЕ ВСЕГДА МЕНЯЮТ ЧЕРЕЗ ПДАГИНЫ
+		//$sender->getServer()->broadcastMessage(KnownTranslationFactory::chat_type_emote($sender instanceof Player ? $sender->getDisplayName() : $sender->getName(), TextFormat::RESET . implode(" ", $args)));
 
 		return true;
 	}
