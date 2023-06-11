@@ -27,6 +27,8 @@ This is the standard PocketMine-MP downloaded from the off repository and modifi
 - [x] /version command
 - [x] /help command
 - [x] /say command
+- [x] /status command
+- [x] Removed the /me command
 
 
 # What the changes look like
