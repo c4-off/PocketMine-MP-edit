@@ -29,6 +29,7 @@ This is the standard PocketMine-MP downloaded from the off repository and modifi
 - [x] /say command
 - [x] /status command
 - [x] Removed the /me command
+- [ ] Removed the message when displaying an emotion
 
 
 # What the changes look like
